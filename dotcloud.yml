@@ -1,4 +1,6 @@
 www:                 # Could actually be anything: front, joe...
   type: ruby         # But this must be a valid service type.
+  exclude_bundler_groups:
+    - development
 db:                  # There again, the name can be anything you like.
   type: mysql   # ...but the type has to be a valid one.
