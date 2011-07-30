@@ -1,4 +1,30 @@
-G::Application.routes.draw do
+WishToGo::Application.routes.draw do
+
+  get "place" => "places#show", :genre_en_name => "shumienntame"
+  get "place/search" => "places#search", :genre_en_name => "shumienntame"
+
+
+  resources :places, :except => [:show] do
+    get :search, :on => :collection
+  end
+
+  
+
+  # resources :seo_keywords, :only => [:index, :update] do
+  #   resource :ad, :only => [:edit, :update, :show]
+  #   resource :seo_text, :only => [:edit, :update]
+  #   # put 'allupdate', :on => :member
+  #   put :allupdate, :on => :collection
+  #   post :csv_upload, :on => :collection
+  #   get :csv_download, :on => :collection
+  # end
+
+  # resources :sites, :only => [:index, :create, :edit, :update] do
+  #   get :display_code, :on => :member
+  # end
+
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

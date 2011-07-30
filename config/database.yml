@@ -6,8 +6,8 @@ development:
   reconnect: false
   database: wishtogo_development
   pool: 5
-  username: root
-  password:
+  username: wishtogo
+  password: wishtogo
   socket: /var/run/mysqld/mysqld.sock
   
   # adapter: sqlite3

@@ -4,4 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-G::Application.load_tasks
+WishToGo::Application.load_tasks
