@@ -9,7 +9,7 @@ development:
   username: wishtogo
   password: wishtogo
   socket: /var/run/mysqld/mysqld.sock
-  
+
   # adapter: sqlite3
   # database: db/development.sqlite3
   # pool: 5
@@ -27,10 +27,10 @@ test:
 production:
   adapter: mysql2
   database: wishtogo_production
-  host: mysql.sgtakeru.dotcloud.com
-  port: 12068
-  username: root
-  password: 5FoKdGi3LwIWVTjAwGZH
+  host: 8c068050.dotcloud.com
+  port: 12069
+  username: wishtogo
+  password: wishtogo
   pool: 5
   timeout: 5000
 
