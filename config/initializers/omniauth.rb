@@ -1,5 +1,5 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :twitter, 'IV5Wk8vuVLdFiQgKRFQVrg', 'fizbadRcQ4Nj6KIxBs9jmHsR4v1lj8VLRKyfCMviIck'
+  provider :twitter, Settings.twitter.key, Settings.twitter.secret
   provider :facebook, '183554385043336', '4d3604ae5a450fc87f24c73d03b1f2e5', {client_options: {ssl: {ca_file: Rails.root.join('ca_bundle.crt').to_s}}}
 
 end

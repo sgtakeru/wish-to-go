@@ -37,3 +37,4 @@ end
 
 gem 'geocoder'
 gem 'omniauth', '>= 0.2.6'
+gem 'settingslogic'

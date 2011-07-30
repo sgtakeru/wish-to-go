@@ -1,0 +1,14 @@
+defaults: &defaults
+  twitter:
+    key: IV5Wk8vuVLdFiQgKRFQVrg
+    secret: fizbadRcQ4Nj6KIxBs9jmHsR4v1lj8VLRKyfCMviIck
+
+
+development:
+  <<: *defaults
+  
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
