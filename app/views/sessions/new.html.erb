@@ -1,0 +1,8 @@
+<h1> LOGIN </h1>
+<% unless current_user %>
+  <%= link_to "Sign in with twitter", "/auth/twitter" %>
+  <%= link_to "Sign in with facebook", "/auth/facebook" %>
+<% end %>
+<% if flash[:error] %>
+  <%= flash[:error] %>
+<% end  %>

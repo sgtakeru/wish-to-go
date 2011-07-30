@@ -8,7 +8,10 @@ WishToGo::Application.routes.draw do
     get :search, :on => :collection
   end
 
-  
+  match '/auth/failure'            => 'sessions#failure'
+  match '/auth/:provider/callback' => 'sessions#create'
+  match '/signin'                  => 'sessions#new', :as => :signin
+  match '/signout'                 => 'sessions#destroy', :as => :signout  
 
   # resources :seo_keywords, :only => [:index, :update] do
   #   resource :ad, :only => [:edit, :update, :show]
