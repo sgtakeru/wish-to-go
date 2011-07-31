@@ -1,23 +1,24 @@
-<div id="title" data-role="page">
-
-  <header data-role="header">
-    <h1>場所 一覧</h1>
-  </header>
-  
+<header data-role="header">
+  <h1>場所 一覧</h1>
+</header>
+<div data-role="content">
   <%= link_to 'Top', :places %>
 
   <%= form_tag search_places_path, :method => :get do %>
-    serach: <%=  text_field_tag 'search', nil, :placeholder => 'Enter addrss or name...' %>
-    <%= submit_tag 'search' %>
+    <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+      <%= label_tag 'name', nil, :class => 'ui-input-text' %>
+      <%=  text_field_tag 'search', nil, :placeholder => 'Enter addrss or name...', 'data-type' => "search" %>
+    </div>
   <% end %>
+  
   <h2> 場所</h2>
   <ul data-role="listview">
     <% @places.each do |place| %>
-      <li>
-        <%= link_to register_place_url(place), rel: "external" do %>
-          <%= "#{place.name} // #{place.address}" %>
-        <% end  %>
-      </li>
+    <li>
+      <%= link_to register_place_url(place), rel: "external" do %>
+      <%= "#{place.name} // #{place.address}" %>
+      <% end  %>
+    </li>
     <% end  %>
   </ul>
 </div>

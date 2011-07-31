@@ -32,8 +32,12 @@ class UsersController < ApplicationController
 
   end
   def register_place
-    @place = Place.find(params[:id])
-    current_user
+    
+    place_id = params[:id]
+    @header_place = Place.includes(:user_places).find(place_id)
+
+    @register_place = UserPlace.find_by_place_id_and_user_id place_id, current_user.id
+
   end
 
   def register

@@ -12,8 +12,17 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
+  <div data-role="page">
+    <% unless current_user %>
+      <%= link_to "Sign in with twitter", "/auth/twitter", rel: "external" %>
+      <%# link_to "Sign in with facebook", "/auth/facebook", rel: "external" %>
+    <% else %>
+      <%= link_to "logout", signout_path, rel: "external" %>
+    <% end %>
+    <%= flash[:notice] if flash[:notice] %>
+    <%= flash[:error]  if flash[:error] %>
 
-<%= yield %>
-
+    <%= yield %>
+  </div>
 </body>
 </html>

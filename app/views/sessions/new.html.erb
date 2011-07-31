@@ -1,8 +1,6 @@
-<div id="title" data-role="page">
-
-  <header data-role="header">
-    <h1> LOGIN </h1>
-  </header>
+<header data-role="header">
+  <h1> LOGIN </h1>
+</header>
 
 <% unless current_user %>
   <%= link_to "Sign in with twitter", "/auth/twitter", rel: "external" %>
@@ -14,4 +12,4 @@
 <% if flash[:error] %>
   <%= flash[:error] %>
 <% end  %>
-</div>
+

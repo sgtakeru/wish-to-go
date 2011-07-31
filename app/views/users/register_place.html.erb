@@ -1,24 +1,28 @@
-<div id="title" data-role="page">
-  <header data-role="header">
-    <h1> 行きたいところ登録</h1>
-  </header>
-名前：<%= @place.name %><br />
-住所：<%= @place.address %><br />
-
-<%= form_for :register_place do |f| %>
+<div data-role="header">
+  <h1> 行きたいところ登録</h1>
+  <%= link_to 'Home', places_url, "class" => "ui-btn-right" %>  
+</div>
+<div class="field">
   <p>
-    <%= f.label :star %><br />
-    <%= f.text_field :star %>
+    名前：<strong><%= @header_place.name %></strong><br />
+    住所：<strong><%= @header_place.address %></strong>
   </p>
-  <p>
-    <%= f.label :comment %><br />
-    <%= f.text_area :comment, :size => "50x10" %>
-  </p>
-  <%= f.submit %>
-<% end %>
-
-
-
 </div>
 
 
+<%# form_for @register_place, :url => register_path do |f| %>
+  
+<%= form_for :register_place, @register_place, :url => register_place_path do |f| %>
+  <div class="field">
+    <%= f.label :star %><br />
+    <%= f.text_field :star %>
+  </div>
+  <div class="field">
+    <%# f.label :comment %><br />
+    <%# f.text_area :comment, :size => "50x10" %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>    
+  </div>
+
+<% end %>

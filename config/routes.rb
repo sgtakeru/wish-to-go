@@ -10,6 +10,7 @@ WishToGo::Application.routes.draw do
 
   match 'register_place/:id' => 'users#register_place', :via => [:get], :as => :register_place
   match 'register_place/:id' => 'users#register', :via => [:post], :as => :register_place
+  match 'register_place/:id' => 'users#update_place', :via => [:put], :as => :register_place
   match 'my_list' => 'users#my_list', :via => [:get], :as => :my_list
   match 'my_list/detail/:id' => 'users#my_list_detail', :via => [:get], :as => :my_list_detail
 
