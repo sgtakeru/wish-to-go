@@ -11,6 +11,7 @@ WishToGo::Application.routes.draw do
   match '/auth/failure'            => 'sessions#failure'
   match '/auth/:provider/callback' => 'sessions#create'
   match '/signin'                  => 'sessions#new', :as => :signin
+  match '/login'                  => 'sessions#dummy_login', :as => :signin
   match '/signout'                 => 'sessions#destroy', :as => :signout  
 
   # resources :seo_keywords, :only => [:index, :update] do

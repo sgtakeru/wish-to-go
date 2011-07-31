@@ -5,3 +5,13 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+
+User.create(:provider => "twitter",
+            :uid => 9999999,
+            :name => "Go Takahashi",
+            :screen_name => "goking",)
+
+User.create(:provider => "twitter",
+            :uid => 9999998,
+            :name => "Hajime Nakamura",
+            :screen_name => "hajipong",)

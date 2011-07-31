@@ -33,4 +33,15 @@ class SessionsController < ApplicationController
     flash[:error] = "Authentication error: #{params[:message].humanize}"
     redirect_to signin_path
   end
+
+  def dummy_login
+    user = User.find_by_name(params[:username])
+    session[:user_id] = user.id if user
+
+    respond_to do |f|
+      f.json { head :ok }
+      f.html { redirect_to places_path }
+
+    end
+  end
 end
