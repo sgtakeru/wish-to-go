@@ -1,0 +1,17 @@
+<h1> 行きたいところ登録</h1>
+
+名前：<%= @place.name %><br />
+住所：<%= @place.address %><br />
+
+<%= form_for :register_place do |f| %>
+  <p>
+    <%= f.label :star %><br />
+    <%= f.text_field :star %>
+  </p>
+  <p>
+    <%= f.label :comment %><br />
+    <%= f.text_area :comment, :size => "50x10" %>
+  </p>
+  <%= f.submit %>
+<% end %>
+

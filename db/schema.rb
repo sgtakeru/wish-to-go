@@ -10,13 +10,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110730120152) do
+ActiveRecord::Schema.define(:version => 20110731022712) do
 
   create_table "places", :force => true do |t|
     t.string   "name"
     t.string   "address"
     t.float    "latitude"
     t.float    "longitude"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_places", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "place_id"
+    t.integer  "star",       :default => 0, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

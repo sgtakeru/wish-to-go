@@ -7,7 +7,10 @@ WishToGo::Application.routes.draw do
   resources :places, :except => [:show] do
     get :search, :on => :collection
   end
-  match 'register_place/:id' => 'users#register', :via => [:get], :as => :register_place
+
+  match 'register_place/:id' => 'users#register_place', :via => [:get], :as => :register_place
+  match 'register_place/:id' => 'users#register', :via => [:post], :as => :register_place
+  match 'my_list' => 'users#my_list', :via => [:get], :as => :my_list
 
   match '/auth/failure'            => 'sessions#failure'
   match '/auth/:provider/callback' => 'sessions#create'
