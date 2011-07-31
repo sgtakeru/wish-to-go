@@ -1,12 +1,13 @@
 WishToGo::Application.routes.draw do
 
-  get "place" => "places#show", :genre_en_name => "shumienntame"
-  get "place/search" => "places#search", :genre_en_name => "shumienntame"
-
+  # get "place" => "places#show", :genre_en_name => "shumienntame"
+  # get "place/search" => "places#search", :genre_en_name => "shumienntame"
+  
 
   resources :places, :except => [:show] do
     get :search, :on => :collection
   end
+  match 'register_place/:id' => 'users#register', :via => [:get], :as => :register_place
 
   match '/auth/failure'            => 'sessions#failure'
   match '/auth/:provider/callback' => 'sessions#create'
