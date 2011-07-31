@@ -19,7 +19,7 @@ User.create(:provider => "twitter",
 
 
 Place.create(:name => "はう")
-Place.create(:address => "福岡県飯塚市")
+Place.create(:name => "バスセンター", :address => "福岡県飯塚市")
 Place.create(:name => "東京タワー")
 Place.create(:name => "富士山")
 Place.create(:name => "イタリア")

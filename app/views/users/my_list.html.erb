@@ -1,0 +1,9 @@
+<h1>将来行きたいよ</h1>
+
+<% @places.each_with_index do |place, i| %>
+  <p>
+    名前:<%= place.name %><br />
+    住所:<%= place.address %>
+    星:<%= @current_user.user_places[i].star %>
+  </p>
+<% end  %>

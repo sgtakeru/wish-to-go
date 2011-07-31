@@ -15,8 +15,8 @@ ActiveRecord::Schema.define(:version => 20110731022712) do
   create_table "places", :force => true do |t|
     t.string   "name"
     t.string   "address"
-    t.float    "latitude"
-    t.float    "longitude"
+    t.float    "latitude",   :default => 0.0, :null => false
+    t.float    "longitude",  :default => 0.0, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
