@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   def my_list
+    
     @places = current_user.places
+    unless @places
+      @places = User.find params[:user_id]
+    end
 
     respond_to do |f|
       f.html
