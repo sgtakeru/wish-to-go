@@ -33,12 +33,12 @@ class SessionsController < ApplicationController
   end
 
   def dummy_login
-    user = User.find_by_name(params[:username])
+    user = User.find_by_screen_name(params[:username])
     session[:user_id] = user.id if user
-
+debugger
     respond_to do |f|
       f.json { head :ok }
-      f.html { redirect_to places_path }
+      f.html { redirect_to my_list_path }
 
     end
   end
