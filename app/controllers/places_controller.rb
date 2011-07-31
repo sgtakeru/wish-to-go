@@ -27,9 +27,9 @@ class PlacesController < ApplicationController
   end
 
   def search
-    debugger
     # @places = Place.where(:address => params[:search])
-    @places = Place.where("address like ?", "%#{params[:search]}%")
+    query = "%#{params[:search]}%"
+    @places = Place.where("address like ? or name like ?", query, query)
     respond_to do |f|
       f.html {render :index}
     end
