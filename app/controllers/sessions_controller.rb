@@ -37,7 +37,7 @@ class SessionsController < ApplicationController
     session[:user_id] = user.id if user
 
     respond_to do |f|
-      f.json { {id: user.id }.to_json }
+      f.json { render :json => {id: user.id }.to_json }
       f.html { redirect_to my_list_path }
 
     end
