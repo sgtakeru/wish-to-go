@@ -1,9 +1,19 @@
-<h1>将来行きたいよ</h1>
+<div id="title" data-role="page">
 
-<% @places.each_with_index do |place, i| %>
-  <p>
-    名前:<%= place.name %><br />
-    住所:<%= place.address %>
-    星:<%= @current_user.user_places[i].star %>
-  </p>
-<% end  %>
+  <header data-role="header">
+    <h1>将来行きたい場所</h1>
+  </header>
+  <ul data-role="listview">
+    <%= link_to "Search", places_path , rel: "external" %>
+    
+    <% @places.each_with_index do |place, i| %>
+    <li>
+      <%= link_to place_path(place), rel: "external" do %>
+        <%= "#{place.name} // #{place.address}" %>
+        <%= " #{@current_user.user_places[i].star}" %>
+      <% end  %>
+    </li>
+    <% end  %>    
+  </ul>
+
+</div>

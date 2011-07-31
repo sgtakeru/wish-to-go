@@ -1,38 +1,24 @@
-<h1>場所 一覧</h1>
+<div id="title" data-role="page">
 
+  <header data-role="header">
+    <h1>場所 一覧</h1>
+  </header>
+  
+  <%= link_to 'Top', :places %>
 
-<%= form_tag search_places_path, :method => :get do %>
-  serach: <%=  text_field_tag 'search', nil, :placeholder => 'Enter addrss or name...' %>
-  <%= submit_tag 'search' %>
-<% end %>
+  <%= form_tag search_places_path, :method => :get do %>
+    serach: <%=  text_field_tag 'search', nil, :placeholder => 'Enter addrss or name...' %>
+    <%= submit_tag 'search' %>
+  <% end %>
+  <h2> 場所</h2>
+  <ul data-role="listview">
+    <% @places.each do |place| %>
+      <li>
+        <%= link_to register_place_url(place), rel: "external" do %>
+          <%= "#{place.name} // #{place.address}" %>
+        <% end  %>
+      </li>
+    <% end  %>
+  </ul>
+</div>
 
-<%= link_to 'Top', :places %>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Address</th>
-    <th>Latitude</th>
-    <th>Longitude</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @places.each do |place| %>
-  <tr>
-    <td><%= place.name %></td>
-    <td><%= place.address %></td>
-    <td><%= place.latitude %></td>
-    <td><%= place.longitude %></td>
-    <td><%= link_to 'ここに行く！', register_place_url(place.id) %></td>
-    <td><%= link_to 'Show', place %></td>
-    <td><%= link_to 'Edit', edit_place_path(place) %></td>
-    <td><%= link_to 'Destroy', place, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Place', new_place_path %>

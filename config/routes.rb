@@ -4,13 +4,14 @@ WishToGo::Application.routes.draw do
   # get "place/search" => "places#search", :genre_en_name => "shumienntame"
   
 
-  resources :places, :except => [:show] do
+  resources :places do
     get :search, :on => :collection
   end
 
   match 'register_place/:id' => 'users#register_place', :via => [:get], :as => :register_place
   match 'register_place/:id' => 'users#register', :via => [:post], :as => :register_place
   match 'my_list' => 'users#my_list', :via => [:get], :as => :my_list
+  match 'my_list/detail/:id' => 'users#my_list_detail', :via => [:get], :as => :my_list_detail
 
   match '/auth/failure'            => 'sessions#failure'
   match '/auth/:provider/callback' => 'sessions#create'

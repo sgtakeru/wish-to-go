@@ -1,11 +1,17 @@
-<h1> LOGIN </h1>
+<div id="title" data-role="page">
+
+  <header data-role="header">
+    <h1> LOGIN </h1>
+  </header>
+
 <% unless current_user %>
-  <%= link_to "Sign in with twitter", "/auth/twitter" %>
+  <%= link_to "Sign in with twitter", "/auth/twitter", rel: "external" %>
   <%= link_to "Sign in with facebook", "/auth/facebook" %>
 <% else %>
-  <%= link_to "logout", signout_path %>
+  <%= link_to "logout", signout_path, rel: "external" %>
 
 <% end %>
 <% if flash[:error] %>
   <%= flash[:error] %>
 <% end  %>
+</div>
