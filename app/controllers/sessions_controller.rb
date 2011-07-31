@@ -14,11 +14,9 @@ class SessionsController < ApplicationController
       if params[:format]
         format.json { head :ok }
       else
-        format.html { redirect_to places_path }
+        format.html { redirect_to my_list_path }
       end
     end
-    
-    
     
   end
 

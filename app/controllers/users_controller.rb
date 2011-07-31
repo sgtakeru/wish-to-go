@@ -10,6 +10,7 @@ class UsersController < ApplicationController
           a << {
             id: p.id,
             name: p.name,
+            address: p.address,
             star: current_user.user_places[i].star,
             location: {
               lat: p.latitude,
