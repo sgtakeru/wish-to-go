@@ -1,9 +1,12 @@
+# -*- coding: utf-8 -*-
 class UsersController < ApplicationController
   def my_list
-    
-    @places = current_user.places
-    unless @places
-      @places = User.find params[:user_id]
+
+    if current_user
+      @places = @current_user.places
+    else
+      @current_user = User.find(params[:user_id])
+      @places = @current_user.places
     end
 
     respond_to do |f|
@@ -15,8 +18,8 @@ class UsersController < ApplicationController
             id: p.id,
             name: p.name,
             address: p.address,
-            star: current_user.user_places[i].star,
-            created_at: current_user.user_places[i].created_at,
+            star: @current_user.user_places[i].star,
+            created_at: @current_user.user_places[i].created_at,
             location: {
               lat: p.latitude,
               lng: p.longitude,
