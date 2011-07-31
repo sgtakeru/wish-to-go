@@ -13,18 +13,18 @@ class PlacesController < ApplicationController
 
   # # GET /places/1
   # # GET /places/1.xml
-  # def show
-  #   # params[:address]
+  def show
+    # params[:address]
 
-  #   # Place.where(:address => params[:address])
-  #   # @place = Place.find(params[:id])
-  #   @place = Place.where(:address => params[:address])
+    # Place.where(:address => params[:address])
+    @place = Place.find(params[:id])
+    # @place = Place.where(:address => params[:address])
 
-  #   respond_to do |format|
-  #     format.html # show.html.erb
-  #     format.xml  { render :xml => @place }
-  #   end
-  # end
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @place }
+    end
+  end
 
   def search
     debugger
