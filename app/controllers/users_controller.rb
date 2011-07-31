@@ -12,6 +12,7 @@ class UsersController < ApplicationController
             name: p.name,
             address: p.address,
             star: current_user.user_places[i].star,
+            created_at: current_user.user_places[i].created_at,
             location: {
               lat: p.latitude,
               lng: p.longitude,
@@ -31,10 +32,9 @@ class UsersController < ApplicationController
   def register
     @place = Place.find(params[:id])
     current_user
-    @current_user.places << @place
-
-    @current_user.user_places.last.star = params[:register_place][:star]
-    @current_user.user_places.last.save!
+    UserPlace.create(:user_id => @current_user.id,
+                     :place_id => @place.id,
+                     :star => params[:register_place][:star],)
 
     respond_to do |f|
       f.html { redirect_to :my_list }
