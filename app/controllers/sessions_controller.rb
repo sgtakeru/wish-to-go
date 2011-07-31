@@ -4,13 +4,22 @@ class SessionsController < ApplicationController
   end
 
   def create
-
+    
     auth = request.env["omniauth.auth"].symbolize_keys
     
     user = User.where(auth.slice(:provider, :uid)).first || User.create_with_omniauth(auth)
     session[:user_id] = user.id
 
-    redirect_to places_path
+    respond_to do |format|
+      if params[:format]
+        format.json { head :ok }
+      else
+        format.html { redirect_to places_path }
+      end
+    end
+    
+    
+    
   end
 
   def destroy
